@@ -1,0 +1,72 @@
+.bewerbung-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 4, 0, 0, 1);
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-spacing: 10;
+}
+
+/* Firmenname (oben links, fett) */
+.firmenname-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #111;
+}
+
+/* Status-Label: Orange, Rot, Grün (je nach Klasse) */
+.status-label {
+    -fx-background-radius: 5;
+    -fx-padding: 2 6 2 6;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.status-abgeschickt {
+    -fx-background-color: #f97316; /* orange */
+}
+.status-absage {
+    -fx-background-color: #ef4444; /* rot */
+}
+.status-zusage {
+    -fx-background-color: #22c55e; /* grün */
+}
+.status-offen {
+    -fx-background-color: #64748b; /* grau */
+}
+
+/* PDF-Bundle-Label */
+.pdf-label {
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 5;
+    -fx-padding: 2 6 2 6;
+    -fx-text-fill: #333;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* Rückmeldung (grauer Kasten unten) */
+.rueckmeldung-label {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 5;
+    -fx-padding: 6;
+    -fx-text-fill: #444;
+    -fx-font-size: 12px;
+}
+
+/* Fortschrittsbalken */
+.progress-bar > .bar {
+    -fx-background-color: #2563eb; /* Blau */
+    -fx-background-radius: 5;
+}
+.progress-bar {
+    -fx-accent: #2563eb;
+    -fx-background-radius: 5;
+}
+GridPane {
+    -fx-padding: 5 0 0 0;
+}
+
+

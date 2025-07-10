@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="id.mky.bewerbungsmanager.Controller.AddBewerbungController"
+            stylesheets="@../style/addBewerbung-Style.css">
+
+    <content>
+        <VBox spacing="20" >
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Label text="Neue Bewerbung anlegen" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Label text="Geben Sie alle relevanten Informationen zur Bewerbung ein."/>
+
+            <!-- Abschnitt: Unternehmensinformationen -->
+            <VBox spacing="10">
+                <Label text="Unternehmensinformationen" style="-fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Firmenname *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="firmennameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Kontaktperson" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                    <TextField fx:id="kontaktpersonField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                    <Label text="E-Mail-Adresse" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Art der Bewerbung" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    <ComboBox fx:id="bewerbungsartBox" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                    <Label text="Position *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="positionField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <!-- Abschnitt: Unterlagen -->
+            <VBox spacing="10">
+                <Label text="Unterlagen-Checkliste" style="-fx-font-weight: bold;"/>
+                <GridPane hgap="20" vgap="10">
+                    <CheckBox fx:id="lebenslaufCheck" text="Lebenslauf" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <CheckBox fx:id="anschreibenCheck" text="Anschreiben" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <CheckBox fx:id="zertifikateCheck" text="Zertifikate" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <CheckBox fx:id="zeugnisseCheck" text="Zeugnisse" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <CheckBox fx:id="pdfBundleCheck" text="PDF-Bundle gewünscht" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                </GridPane>
+            </VBox>
+
+            <!-- Abschnitt: Status & Rückmeldung -->
+            <VBox spacing="10">
+                <Label text="Status Rückmeldung" style="-fx-font-weight: bold;"/>
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Status" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="statusBox" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Rückmeldung" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextArea fx:id="rueckmeldungArea" promptText="Notizen zur Rückmeldung des Unternehmens..."
+                              prefRowCount="3" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+        </VBox>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="cancel" text="Abbrechen" buttonData="CANCEL_CLOSE"/>
+        <ButtonType text="Speichern" buttonData="OK_DONE"/>
+    </buttonTypes>
+</DialogPane>

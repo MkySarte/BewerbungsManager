@@ -1,0 +1,62 @@
+/* Hauptlayout-Hintergrund */
+.root {
+    -fx-background-color: #f9f9f9;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Überschrift */
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* Karten-Stil (für Statistikfelder) */
+.card {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0.0, 0, 2);
+    -fx-min-width: 120;
+    -fx-alignment: center;
+}
+
+/* Button-Stil */
+.button {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #333333;
+}
+
+/* Suchfeld */
+.text-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-padding: 6 10 6 10;
+    -fx-background-color: white;
+}
+
+/* Scrollbereich (Liste) */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Optional: Bewerbungskarte vorbereiten */
+.bewerbung-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0.0, 0, 2);
+}
