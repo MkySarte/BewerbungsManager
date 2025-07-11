@@ -62,10 +62,18 @@ public class BewerbungService
             return false;
         }
 
-        return bewerbungDAO.update(bewerbung);
+        //GEÄNDERT
+
+        BewerbungModel geaendert = bewerbungDAO.findById(bewerbung.getBewerbungID());
+        System.err.println("Daten wurden aktualisiert (BewerbungService - bewerbungAktualisieren");
+
+        //GEÄNDERT
+
+        return bewerbungDAO.update(geaendert);
+        //return bewerbungDAO.update(bewerbung); //geändert!
     }
 
-
+    // wird bei deleteBewerbungUndFirmaWennLetzte mit
     public boolean bewerbungLöschen(int id) {
         return bewerbungDAO.delete(id);
     }

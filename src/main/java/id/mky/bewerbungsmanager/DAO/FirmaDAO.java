@@ -9,36 +9,81 @@ import java.util.List;
 //CRUD
 public class FirmaDAO {
 
+    // Original
+//    public int save(FirmaModel firma) {
+//        String sql = "INSERT INTO firma (name, kontaktperson, email) VALUES (?, ?, ?)";
+//
+//        try (Connection conn = DatabaseConnection.connect();
+//             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+//
+//            pstmt.setString(1, firma.getName());
+//            pstmt.setString(2, firma.getKontaktperson());
+//            pstmt.setString(3, firma.getEmail());
+//
+//            int affectedRows = pstmt.executeUpdate();
+//
+//            if (affectedRows == 0) {
+//                System.err.println("Firma wurde nicht eingefügt – keine Zeilen betroffen.");
+//                return -1;
+//            }
+//
+//            try (ResultSet rs = pstmt.getGeneratedKeys()) {
+//                if (rs.next()) {
+//                    int id = rs.getInt(1);
+//                    if (id == 0) {
+//                        System.err.println("Achtung: Generierte Firma-ID ist 0 – das sollte nicht vorkommen.");
+//                        return -1;
+//                    }
+//                    return id;
+//                } else {
+//                    System.err.println("Firma gespeichert, aber keine ID zurückgegeben.");
+//                }
+//            }
+//
+//        } catch (SQLException e) {
+//            System.err.println("Fehler beim Speichern der Firma: " + e.getMessage());
+//        }
+//
+//        return -1;
+//
+//    }
 
+    // geänderter Code
     public int save(FirmaModel firma) {
-        String sql = "INSERT INTO firma (name, kontaktperson, email) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO firma (id, name, kontaktperson, email) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            pstmt.setString(1, firma.getName());
-            pstmt.setString(2, firma.getKontaktperson());
-            pstmt.setString(3, firma.getEmail());
+            pstmt.setString(2, firma.getName());
+            pstmt.setString(3, firma.getKontaktperson());
+            pstmt.setString(4, firma.getEmail());
 
             int affectedRows = pstmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                    if (rs.next()) return rs.getInt(1);
+                }
+            }
 
             if (affectedRows == 0) {
                 System.err.println("Firma wurde nicht eingefügt – keine Zeilen betroffen.");
                 return -1;
             }
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                if (rs.next()) {
-                    int id = rs.getInt(1);
-                    if (id == 0) {
-                        System.err.println("Achtung: Generierte Firma-ID ist 0 – das sollte nicht vorkommen.");
-                        return -1;
-                    }
-                    return id;
-                } else {
-                    System.err.println("Firma gespeichert, aber keine ID zurückgegeben.");
-                }
-            }
+//            try (ResultSet rs = pstmt.getGeneratedKeys()) {
+//                if (rs.next()) {
+//                    int id = rs.getInt(1);
+//                    if (id == 0) {
+//                        System.err.println("Achtung: Generierte Firma-ID ist 0 – das sollte nicht vorkommen.");
+//                        return -1;
+//                    }
+//                    return id;
+//                } else {
+//                    System.err.println("Firma gespeichert, aber keine ID zurückgegeben.");
+//                }
+//            }
 
         } catch (SQLException e) {
             System.err.println("Fehler beim Speichern der Firma: " + e.getMessage());
@@ -125,7 +170,7 @@ public class FirmaDAO {
         return null;
     }
 
-
+    // Original code
     public boolean update(FirmaModel firma) {
         String sql = "UPDATE firma SET name = ?, kontaktperson = ?, email = ? WHERE id = ?";
 
@@ -145,6 +190,29 @@ public class FirmaDAO {
 
         return false;
     }
+
+ // veränderter code
+//    public boolean update(String dbName, String dbKontaktperson, String dbEmail, int dbId) {
+//        String sql = "UPDATE firma SET name = " + dbName + ", kontaktperson = " + dbKontaktperson+ ", email = " + dbEmail + "  WHERE id = " + dbId;
+//
+//        try (Connection conn = DatabaseConnection.connect();
+//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//
+//            pstmt.setString(1, dbName);
+//            pstmt.setString(2, dbKontaktperson);
+//            pstmt.setString(3, dbEmail);
+//            pstmt.setInt(4, dbId);
+//
+//
+//            return pstmt.executeUpdate() > 0;
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return false;
+//    }
+
 
 
     public boolean delete(int id) {

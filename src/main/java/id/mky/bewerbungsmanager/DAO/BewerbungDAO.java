@@ -61,7 +61,7 @@ public class BewerbungDAO {
         return -1;
     }
 
-
+    // mit Hilfe der Firmen ID suchen
     public BewerbungModel findById(int id) {
         String sql = "SELECT * FROM bewerbung WHERE id = ?";
 
@@ -192,7 +192,7 @@ public class BewerbungDAO {
         return list;
     }
 
-
+    // bricht nach update ab
     public boolean update(BewerbungModel bewerbung) {
         String sql = """
         UPDATE bewerbung SET
