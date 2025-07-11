@@ -61,16 +61,22 @@ public class BewerbungService
             System.err.println("bewerbungAktualisieren -> BewerbungsService");
             return false;
         }
+        System.err.println("Daten wurden aktualisiert (BewerbungService - bewerbungAktualisieren");
+
+        // so stürzt es nach Änderungen ab!
+        //return bewerbungDAO.update(bewerbung);
 
         //GEÄNDERT
 
         BewerbungModel geaendert = bewerbungDAO.findById(bewerbung.getBewerbungID());
-        System.err.println("Daten wurden aktualisiert (BewerbungService - bewerbungAktualisieren");
+        return bewerbungDAO.update(geaendert);
+
+        //BewerbungModel changed = bewerbungDAO.findById(bewerbung.getBewerbungID());
+        // ich will hier ein geändertes BewerbungModel-Objekt anlegen -> das heißt ich muss die Daten aus der GUI
+        // rausspeichern -> in Datenbank -> in update-Methode übergeben
+
 
         //GEÄNDERT
-
-        return bewerbungDAO.update(geaendert);
-        //return bewerbungDAO.update(bewerbung); //geändert!
     }
 
     // wird bei deleteBewerbungUndFirmaWennLetzte mit

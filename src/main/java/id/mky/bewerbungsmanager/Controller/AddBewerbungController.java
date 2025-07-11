@@ -4,6 +4,7 @@ import id.mky.bewerbungsmanager.Model.BewerbungModel;
 import id.mky.bewerbungsmanager.Model.Bewerbungsart;
 import id.mky.bewerbungsmanager.Model.FirmaModel;
 import id.mky.bewerbungsmanager.Model.UnterlagenModel;
+import id.mky.bewerbungsmanager.Service.BewerbungService;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -25,6 +26,7 @@ public class AddBewerbungController {
     @FXML private TextArea rueckmeldungArea;
 
     private BewerbungModel bewerbung;
+    private BewerbungService bs;
 
     @FXML
     public void initialize() {
@@ -35,6 +37,9 @@ public class AddBewerbungController {
         );
 
         statusBox.setValue("Abgeschickt");
+
+        // GEÄNDERT!
+        //bs.bewerbungAktualisieren(getBewerbung());
     }
 
 
