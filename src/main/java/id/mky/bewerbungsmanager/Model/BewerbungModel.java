@@ -1,6 +1,5 @@
 package id.mky.bewerbungsmanager.Model;
 
-import java.nio.file.FileStore;
 
 public class BewerbungModel
 {
