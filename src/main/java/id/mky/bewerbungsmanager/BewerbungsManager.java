@@ -34,3 +34,4 @@ public class BewerbungsManager extends Application {
         launch(args);
     }
 }
+
