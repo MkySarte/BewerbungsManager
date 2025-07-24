@@ -1,4 +1,14 @@
-Firmen müssen beim löschen auch gelöscht werden
-Beim ändern der karte speicher er doppelt!! 
 
-dann erst APi machen
+## Todos
+    - löschen der Firmen sollen auch im SQLite erfolgen
+    - .. Service und Dao nochmal anschauen 
+    - wenn es mit der gui nicht klappt dann erstmal ohne 
+
+## features
+    - hinzufügen kontakt aufgenommen telefonisch
+    - anhand diesen kann man status bereits sehen ob firma 
+    interesse hat oder nciht
+
+    - api für jobsuche wie jobcenter
+    - oder IHK
+    
