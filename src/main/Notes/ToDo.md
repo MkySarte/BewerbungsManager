@@ -2,6 +2,8 @@
 ## Todos
     - löschen der Firmen sollen auch im SQLite erfolgen
     - .. Service und Dao nochmal anschauen 
+    - ERM-Diagramm richtig erstellen !!!
+    - danach dann arbeiten
     - wenn es mit der gui nicht klappt dann erstmal ohne 
 
 ## features
